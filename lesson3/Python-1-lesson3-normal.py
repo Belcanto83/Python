@@ -26,3 +26,4 @@ with open('salary.txt', encoding='utf-8') as file:
         name, gross_salary = line.split(' - ')
         net_salary = round(0.87 * int(gross_salary), 2)
         print(name.upper() + ' - ' + str(net_salary))
+

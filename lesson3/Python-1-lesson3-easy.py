@@ -48,3 +48,4 @@ def max_string(*string):
 
 
 print('Максимальная строка:', max_string(*string_data))
+
