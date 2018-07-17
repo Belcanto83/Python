@@ -25,6 +25,7 @@ fruits_2 = ['яблоко', 'киви', 'манго', 'киви']
 intersection_list = [fruit for fruit in fruits_1 if fruit in fruits_2]
 print(list(set(intersection_list)))
 
+
 # Задание-3:
 # Дан список, заполненный произвольными числами.
 # Получить список из элементов исходного, удовлетворяющих следующим условиям:
