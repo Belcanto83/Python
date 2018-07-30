@@ -92,10 +92,10 @@ class Game:
 
     def start(self):
         winner = None
-        while len(self._player_card._number_list) > 0 and len(self._computer_card._number_list) > 0 and not winner:
+        while not winner:
             number = random.choice(self._numbers_set)
             self._numbers_set.remove(number)
-            print('Новый бочонок:', number)
+            print('Новый бочонок:', number, ',', 'Осталось бочонков:', len(self._numbers_set))
             print(self._player_card.card_string)
             print(self._computer_card.card_string)
             answer = input('Зачеркнуть цифру? (y/n): ')
@@ -107,13 +107,25 @@ class Game:
                 break
             elif answer == 'n' and number not in self._player_card._number_list:
                 self._player_card.check_number_in_card(number)
+            elif answer == 'n' and number in self._player_card._number_list:
+                winner = self._computer_card
             else:
                 winner = self._computer_card
+            #########################################
+            if len(self._computer_card._number_list) == 0 and len(self._player_card._number_list) == 0:
+                winner = None
                 break
+            elif len(self._computer_card._number_list) == 0:
+                winner = self._computer_card
+            elif len(self._player_card._number_list) == 0:
+                winner = self._player_card
         if winner == self._computer_card:
             print('Победил компьютер!')
-        else:
+        elif winner == self._player_card:
             print('Победил игрок!')
+        else:
+            print('Ничья!')
+
 
 
 
